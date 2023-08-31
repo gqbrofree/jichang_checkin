@@ -52,9 +52,7 @@ try:
     print(response['msg'])
 
 except:
-    print('录失败，请检查网络或参数')       
-    return None
-
+    print('录失败，请检查网络或参数')   
 
 # 进行签到
 print('进行签到..'+check_url)
