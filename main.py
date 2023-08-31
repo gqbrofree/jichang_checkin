@@ -43,6 +43,8 @@ data = {
 #进行登录
 
 print('进行登录..'+login_url)
+
+
 try:       
 
     response = json.loads(session.post(url=login_url,headers=header,data=json.dumps(data)).text) 
@@ -51,16 +53,16 @@ try:
 
     except Exception as e:
         print(f"登录失败，请检查网络或参数：{e}")
-        return None, None, None   
-            
+        return None
 
+
+# 进行签到
+print('进行签到..'+check_url)
 
 
 try:
-  
-  
-        
-    # 进行签到
+          
+
     result = json.loads(session.post(url=check_url,headers=header).text)
     print(result['msg'])
     content = result['msg']
