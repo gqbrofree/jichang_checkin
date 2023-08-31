@@ -20,7 +20,12 @@ header = {
 }
 data = {
         'email': email,
-        'passwd': passwd
+        'passwd': passwd,
+        
+        'code': '',
+        
+        'remember_me':0
+
 }
 try:
     print('进行登录...')
