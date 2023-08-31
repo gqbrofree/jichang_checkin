@@ -25,13 +25,16 @@ data = {
         'remember_me': 1
 }
 try:
-    print('进行登录...')
+    #进行登录
+    print('进行登录...'+login_ur)
     response = json.loads(session.post(url=login_url,headers=header,data=data).text)
     print(response['msg'])
+        
     # 进行签到
     result = json.loads(session.post(url=check_url,headers=header).text)
     print(result['msg'])
     content = result['msg']
+       
     # 进行推送
     if SCKEY != '':
         push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, content)
