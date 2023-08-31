@@ -36,7 +36,7 @@ data = {
         'email': email,
         'passwd': passwd,
         'code': '', 
-        'remember_me': 1
+        'remember_me': ''
 }
 
 
