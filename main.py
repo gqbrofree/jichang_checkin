@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+File: main.py(机场通用签到)
+Author: gqbrofree
+cron: 0 40 12 * * *
+new Env('机场通用签到');
+Update: 2023/8/31
+"""
+
+
 import requests, json, re, os, json
 
 session = requests.session()
