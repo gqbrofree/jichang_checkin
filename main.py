@@ -26,7 +26,7 @@ data = {
 }
 try:
     #进行登录
-    print('进行登录...'+login_ur)
+    print('进行登录...' + login_url)
     response = json.loads(session.post(url=login_url,headers=header,data=data).text)
     print(response['msg'])
         
