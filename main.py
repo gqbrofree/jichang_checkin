@@ -51,9 +51,9 @@ try:
         
     print(response['msg'])
 
-    except Exception as e:
-        print(f"登录失败，请检查网络或参数：{e}")
-        return None
+except:
+    print('录失败，请检查网络或参数')       
+    return None
 
 
 # 进行签到
