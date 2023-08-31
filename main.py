@@ -15,8 +15,10 @@ check_url = '{}/user/checkin'.format(url)
 
 
 header = {
+        'refere': login_url,       
         'origin': url,
-        'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+        'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+        'content-type':'application/json;charset=UTF-8'
 }
 data = {
         'email': email,
@@ -28,18 +30,13 @@ data = {
 
 #进行登录
 
-try:
-        checkin = requests.post(checkin_url,headers={
-            'cookie': cookie ,
-            'referer': referer,
-            'origin':origin,
-            'user-agent':useragent,
-            'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
-        state =  requests.get(state_url,headers={
-            'cookie': cookie ,
-            'referer': referer,
-            'origin':origin,
-            'user-agent':useragent})
+print('进行登录..'+login_url)
+
+ #response = json.loads(session.post(url=login_url,headers=header,data=data).text) 
+ #print(response['msg'])
+try:       
+
+
     except Exception as e:
         print(f"签到失败，请检查网络：{e}")
         return None, None, None
@@ -50,10 +47,8 @@ try:
 
 
 try:
-    #进行登录
-    print('进行登录...' + login_url)
-    #response = json.loads(session.post(url=login_url,headers=header,data=data).text)
-    print(response['msg'])
+  
+  
         
     # 进行签到
     result = json.loads(session.post(url=check_url,headers=header).text)
