@@ -35,8 +35,8 @@ header = {
 data = {
         'email': email,
         'passwd': passwd,
-        'code': '', 
-        'remember_me': ''
+        'code': None, 
+        'remember_me': None
 }
 
 
