@@ -1,4 +1,4 @@
-import requests, json, re, os
+import requests, json, re, os, json
 
 session = requests.session()
 # 机场的地址
@@ -31,18 +31,16 @@ data = {
 #进行登录
 
 print('进行登录..'+login_url)
-
- #response = json.loads(session.post(url=login_url,headers=header,data=data).text) 
- #print(response['msg'])
 try:       
 
+    response = json.loads(session.post(url=login_url,headers=header,data=json.dumps(data)).text) 
+        
+    print(response['msg'])
 
     except Exception as e:
-        print(f"签到失败，请检查网络：{e}")
-        return None, None, None
-    
-
-
+        print(f"登录失败，请检查网络或参数：{e}")
+        return None, None, None   
+            
 
 
 
