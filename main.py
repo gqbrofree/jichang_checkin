@@ -42,20 +42,19 @@ print('进行登录..'+login_url)
 try:       
     response = json.loads(session.post(url=login_url,headers=header,data=json.dumps(data)).text) 
     print(response['msg'])
+    
+    # 签到
+    print('进行签到..'+check_url)
 
+    try:          
+        result = json.loads(session.post(url=check_url,headers=header).text)
+        print(result['msg'])
+        content = result['msg']
+    
+        # 推送
+        checksendNotify.send(url+"签到成功", content)
+    except:
+        print('签到失败，检查URL、用户密码！')
 except:
     print('登录失败，请检查网络或参数')   
-
-# 签到
-print('进行签到..'+check_url)
-
-try:          
-    result = json.loads(session.post(url=check_url,headers=header).text)
-    print(result['msg'])
-    content = result['msg']
-    
-    # 推送
-    checksendNotify.send(url+"签到成功", content)
-except:
-    print('签到失败，检查URL、用户密码！')
-    
+      
